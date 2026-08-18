@@ -9,6 +9,7 @@ import utilities.PageUtility;
 
 public class AdminUsersPage {
 	public WebDriver driver;
+	PageUtility pageutility=new PageUtility();
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']") WebElement adm_user;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newbutton;
 	@FindBy(xpath="//input[@name='username']") WebElement usernamefield;
@@ -17,8 +18,7 @@ public class AdminUsersPage {
 	@FindBy(xpath="//button[@name='Create']") WebElement submit;
 	
 	//validation check
-	@FindBy(xpath="//i[@class='icon fas fa-check']")
-	static WebElement alert;
+	@FindBy(xpath="//i[@class='icon fas fa-check']") WebElement alerting;
 	
 	
 	
@@ -47,11 +47,11 @@ public class AdminUsersPage {
 		
 	}
 	public void dropdown() {
-		PageUtility pageutility=new PageUtility();
-		pageutility.dropdownVisibleText(usertypedrop,"Admin");
+		
+		pageutility.dropdownVisibleText(usertypedrop,"Admin");// change to Admin
 	}
-	public static boolean isAlertDisplayed() {
-		return alert.isDisplayed();
-	}
+	public boolean isAlertDisplayed() {
+		return alerting.isDisplayed();
+}
 
 }

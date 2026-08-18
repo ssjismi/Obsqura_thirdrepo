@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Grouping">
+  <test name="ChromeTest">
+   <parameter name="browser" value="chrome"></parameter>
+   <groups>
+   <run><include name="regression"></include>
+   </run>
+   </groups>
+    <classes>
+      <class name="test_script.ManageNewsTest"/>  
+      <class name="test_script.ManageLocationTest"/>
+    </classes>
+
+    <!--<classes>
+      <class name="test_script.LogoutTest"/>  
+      <class name="test_script.LoginTest"/>
+    </classes>-->
+  
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

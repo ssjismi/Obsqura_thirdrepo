@@ -1,29 +1,29 @@
 package test_script;
 
+import java.io.IOException;
+
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
 import pages.ManageLocationPage;
+import utilities.ExcelUtilities;
 
 
 public class ManageLocationTest extends Base{
-	LoginPage loginPage;
-
-    @BeforeMethod
-    public void loginToApplication() {
-
-        loginPage = new LoginPage(driver);
-
-        loginPage.enterUsername("admin");
-        loginPage.enterPassword("admin");
-        loginPage.clickLogin();
-    }
+	
 @Test
-public void createManageLocation() {
+public void createManageLocation() throws IOException {
 	String delivery="500";
 	String locat="Trivandrum";
+	String usernamevalue = ExcelUtilities.getStringData(1, 0, "loginpage");
+	String passwordvalue = ExcelUtilities.getStringData(1, 1, "loginpage");
+	LoginPage loginpage = new LoginPage(driver);
+	loginpage.enterUsername(usernamevalue);
+	loginpage.enterPassword(passwordvalue);
+	loginpage.clickLogin();
+	
 	ManageLocationPage adm=new ManageLocationPage(driver);
 	adm.locateManageLocation();
 	adm.clickNew();
@@ -32,7 +32,7 @@ public void createManageLocation() {
 	adm.deliveryCharge(delivery);
 	adm.clickCreate();
 	
-	boolean alert=ManageLocationPage.isAlertDisplayed();
+	boolean alert=adm.isAlertDisplayed();
 	Assert.assertTrue(alert);
 }
 

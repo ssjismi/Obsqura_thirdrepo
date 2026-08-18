@@ -9,6 +9,7 @@ import utilities.PageUtility;
 
 public class ManageDeliveryBoyPage {
 	public WebDriver driver;
+	PageUtility pageutil = new PageUtility();
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-deliveryboy'and @class=' nav-link']") WebElement manage_deliveryboy;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newbutton;
 	@FindBy(xpath="//input[@id='name']") WebElement name;
@@ -20,8 +21,7 @@ public class ManageDeliveryBoyPage {
 	@FindBy(xpath="//button[@class='btn btn-danger']") WebElement submit;
 	
 	//validation check
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
-	static WebElement alert;
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")WebElement alert;
 	
 	
 	public ManageDeliveryBoyPage(WebDriver driver) {
@@ -29,7 +29,7 @@ public class ManageDeliveryBoyPage {
 		PageFactory.initElements(driver,this);
 	}
 	public void locateManageDeliveryBoy() {
-		PageUtility pageutil = new PageUtility();
+		
 		pageutil.clickElement(driver, manage_deliveryboy);
 	}
 	public void clickNew() {
@@ -55,7 +55,6 @@ public class ManageDeliveryBoyPage {
 		password.sendKeys(pass);
 	}
 	public void clickCreate() {
-		PageUtility pageutil = new PageUtility();
 		pageutil.clickElement(driver, submit);
 		//submit.click();	
 	}

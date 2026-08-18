@@ -10,6 +10,7 @@ import utilities.PageUtility;
 
 public class ManageLocationPage {
 	public WebDriver driver;
+	PageUtility pageutility = new PageUtility();
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-location' and @class=' nav-link']") WebElement manage_location;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newbutton;
 	@FindBy(xpath="//select[@id='country_id']") WebElement country;
@@ -19,10 +20,7 @@ public class ManageLocationPage {
 	@FindBy(xpath="//button[@class='btn btn-danger']") WebElement submit;
 	
 	//validation check
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
-	static WebElement alert;
-	
-	
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement alert;
 	
 	
 	public ManageLocationPage(WebDriver driver) {
@@ -33,14 +31,13 @@ public class ManageLocationPage {
 //		JavascriptExecutor js = (JavascriptExecutor) driver;
 //		js.executeScript("arguments[0].click();", manage_location);
 //		manage_news.click();
-		PageUtility pageutil = new PageUtility();
-		pageutil.clickElement(driver, manage_location);
+		
+		pageutility.clickElement(driver, manage_location);
 	}
 	public void clickNew() {
 		newbutton.click();
 	}
-	public void dropdowns() {
-		PageUtility pageutility = new PageUtility();
+	public void dropdowns() {	
 	    pageutility.dropdownVisibleText(country, "United Kingdom");
 	    pageutility.dropdownVisibleText(state, "Brechin");
 	}
@@ -54,12 +51,11 @@ public class ManageLocationPage {
 		submit.click();	
 	}
 	public void dropdown() {
-		PageUtility pageutility=new PageUtility();
 		pageutility.dropdownVisibleText(country,"United Kingdom"); 
 		pageutility.dropdownVisibleText(state,"Brechin");
 		
 	}
-	public static boolean isAlertDisplayed() {
+	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();
 	}
 

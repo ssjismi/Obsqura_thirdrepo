@@ -10,6 +10,7 @@ import utilities.PageUtility;
 
 public class CategoryPage {
 	public WebDriver driver;
+	PageUtility pageutil = new PageUtility();
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category' and @class='nav-link']") WebElement manage_category;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newbutton;
 	@FindBy(xpath="//input[@id='category']") WebElement category;
@@ -21,11 +22,8 @@ public class CategoryPage {
 	@FindBy(xpath="//button[@type='submit']") WebElement submit;
 	
 	//validation check
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
-	static WebElement alert;
-	
-	
-	
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement alert1;
+		
 	
 	public CategoryPage(WebDriver driver) {
 		this.driver=driver;
@@ -35,7 +33,7 @@ public class CategoryPage {
 //		JavascriptExecutor js = (JavascriptExecutor) driver;
 //		js.executeScript("arguments[0].click();", manage_location);
 //		manage_news.click();
-		PageUtility pageutil = new PageUtility();
+		
 		pageutil.clickElement(driver, manage_category);
 	}
 	public void clickNew() {
@@ -49,10 +47,10 @@ public class CategoryPage {
 	}
 
 	public void fileupload() {
-		PageUtility pageutility = new PageUtility();
-	    pageutility.uploadFile(library,Constant.TESTDATA);
-	    pageutility.selectRadioButton(driver, first_radio);
-	    pageutility.selectRadioButton(driver, second_radio); 
+	
+	    pageutil.uploadFile(library,Constant.TESTDATA);
+	    pageutil.selectRadioButton(driver, first_radio);
+	    pageutil.selectRadioButton(driver, second_radio); 
 	}
 //	public void radioButtons() {
 //		first_radio.click();
@@ -60,12 +58,11 @@ public class CategoryPage {
 //	}
 
 	public void clickCreate() {
-		PageUtility pageutility = new PageUtility();
-		pageutility.clickElement(driver, submit);
+		pageutil.clickElement(driver, submit);
 		//submit.click();	
 	}
-	public static boolean isAlertDisplayed() {
-		return alert.isDisplayed();
+	public boolean isAlertDisplayed() {
+		return alert1.isDisplayed();
 	}
 
 

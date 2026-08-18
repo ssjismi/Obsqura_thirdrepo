@@ -1,28 +1,33 @@
 package test_script;
 
+import java.io.IOException;
+
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+
 import org.testng.annotations.Test;
 
 import pages.CategoryPage;
 import pages.LoginPage;
+import utilities.ExcelUtilities;
 
 
 public class CategoryTest extends Base{
-	LoginPage loginPage;
 
-    @BeforeMethod
-    public void loginToApplication() {
-
-        loginPage = new LoginPage(driver);
-
-        loginPage.enterUsername("admin");
-        loginPage.enterPassword("admin");
-        loginPage.clickLogin();
-    }
+ 
 @Test
-public void createCategoryTest() {
+public void createCategoryTest() throws IOException {
 	String n1="healthy option";
+	String usernamevalue = ExcelUtilities.getStringData(1, 0, "loginpage");
+	String passwordvalue = ExcelUtilities.getStringData(1, 1, "loginpage");
+	LoginPage loginpage = new LoginPage(driver);
+	loginpage.enterUsername(usernamevalue);
+	loginpage.enterPassword(passwordvalue);
+	loginpage.clickLogin();
+//	 LoginPage loginPage = new LoginPage(driver);
+//
+//     loginPage.enterUsername("admin");
+//     loginPage.enterPassword("admin");
+//     loginPage.clickLogin();
 	CategoryPage adm=new CategoryPage(driver);
 	adm.locateCategory();
 	adm.clickNew();
@@ -32,7 +37,7 @@ public void createCategoryTest() {
 	//adm.radioButtons();
 	adm.clickCreate();
 	
-	boolean alert=CategoryPage.isAlertDisplayed();
+	boolean alert=adm.isAlertDisplayed();
 	Assert.assertTrue(alert);
 }
 

@@ -1,37 +1,40 @@
 package test_script;
 
+import java.io.IOException;
+
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pages.AdminUsersPage;
 import pages.LoginPage;
+import utilities.ExcelUtilities;
+import utilities.FakerUtility;
 
 public class AdminUsersTest extends Base {
-	  LoginPage loginPage;
 
-	    @BeforeMethod
-	    public void loginToApplication() {
-
-	        loginPage = new LoginPage(driver);
-
-	        loginPage.enterUsername("admin");
-	        loginPage.enterPassword("admin");
-	        loginPage.clickLogin();
-	    }
+	
 	@Test
-	public void createAdminUsers() {
-		String username="Jimsi";
-		String password="pass";
+	public void createAdminUsers() throws IOException {
+		FakerUtility faker=new FakerUtility();
+		String adminusername=faker.creatARandomFirstName();
+		String adminpassword=faker.creatARandomFirstName();
+//		String username="Jimsi";
+//		String password="pass";
+		String usernamevalue = ExcelUtilities.getStringData(1, 0, "loginpage");
+		String passwordvalue = ExcelUtilities.getStringData(1, 1, "loginpage");
+		LoginPage loginpage = new LoginPage(driver);
+		loginpage.enterUsername(usernamevalue);
+		loginpage.enterPassword(passwordvalue);
+		loginpage.clickLogin();
 		AdminUsersPage adm=new AdminUsersPage(driver);
 		adm.locateAdminUsers();
 		adm.clickNew();
-		adm.enterUsername(username);
-		adm.enterPassword(password);
+		adm.enterUsername(adminusername);
+		adm.enterPassword(adminpassword);
 		adm.dropdown();
 		adm.clickCreate();
 		
-		boolean alert=AdminUsersPage.isAlertDisplayed();
+		boolean alert=adm.isAlertDisplayed();
 		Assert.assertTrue(alert);
 	}
 

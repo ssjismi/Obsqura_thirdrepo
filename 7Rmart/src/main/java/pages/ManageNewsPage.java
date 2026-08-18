@@ -16,10 +16,7 @@ public class ManageNewsPage {
 	@FindBy(xpath="//button[@type='submit']") WebElement submit;
 	
 	//validation check
-	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']")
-	static WebElement alert;
-	
-	
+	@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement alert;	
 	
 	
 	public ManageNewsPage(WebDriver driver) {
@@ -42,7 +39,7 @@ public class ManageNewsPage {
 		submit.click();
 		
 	}
-	public static boolean isAlertDisplayed() {
+	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();
 	}
 
