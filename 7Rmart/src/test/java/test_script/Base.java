@@ -10,7 +10,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
+
+import org.testng.annotations.Parameters;
 
 import utilities.ScreenshotUtility;
 //import org.testng.annotations.Parameters;
@@ -19,9 +20,9 @@ import utilities.ScreenshotUtility;
 public class Base {
 	WebDriver driver;
 	@BeforeMethod(alwaysRun=true)   //alwaysRun=true
-	//@Parameters("browser")
+	@Parameters("browser")
 	
-	public void browserInitialization(@Optional("chrome")String browser) throws Exception{
+	public void browserInitialization(String browser) throws Exception{  //@Optional("chrome")
 		//driver=new ChromeDriver();
 		if(browser.equalsIgnoreCase("chrome")) {
 			driver=new ChromeDriver();

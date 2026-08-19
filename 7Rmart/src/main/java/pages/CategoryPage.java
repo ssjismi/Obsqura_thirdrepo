@@ -6,11 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import constant.Constant;
+import utilities.FileUploadUtility;
 import utilities.PageUtility;
 
 public class CategoryPage {
 	public WebDriver driver;
 	PageUtility pageutil = new PageUtility();
+	FileUploadUtility fupload=new FileUploadUtility();
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category' and @class='nav-link']") WebElement manage_category;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newbutton;
 	@FindBy(xpath="//input[@id='category']") WebElement category;
@@ -47,8 +49,8 @@ public class CategoryPage {
 	}
 
 	public void fileupload() {
-	
-	    pageutil.uploadFile(library,Constant.TESTDATA);
+		fupload.uploadFile(library, Constant.TESTDATA);
+	    //pageutil.uploadFile(library,Constant.TESTDATA);
 	    pageutil.selectRadioButton(driver, first_radio);
 	    pageutil.selectRadioButton(driver, second_radio); 
 	}

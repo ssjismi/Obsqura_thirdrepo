@@ -10,7 +10,7 @@ import pages.LoginPage;
 import utilities.ExcelUtilities;
 
 public class LoginTest extends Base {
-	@Test(priority=1,groups="regression")
+	@Test(priority=1,groups="regression",retryAnalyzer=retry.Retry.class)
 	public void verifyUserIsabletologinwithvalidcredentials() throws IOException {
 //		String username="admin";
 //		String password="admin";

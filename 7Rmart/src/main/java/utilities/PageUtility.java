@@ -14,9 +14,9 @@ public class PageUtility {
 		JavascriptExecutor js=(JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click()",element);
 	}
-	public void uploadFile(WebElement element, String filePath) {
-	    element.sendKeys(filePath);
-	}
+//	public void uploadFile(WebElement element, String filePath) {
+//	    element.sendKeys(filePath);
+//	}
 	public void selectRadioButton(WebDriver driver, WebElement radioButton) {
 
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
