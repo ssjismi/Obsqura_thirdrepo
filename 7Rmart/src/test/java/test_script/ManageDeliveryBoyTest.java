@@ -11,7 +11,7 @@ import utilities.ExcelUtilities;
 @Test
 public class ManageDeliveryBoyTest extends Base{
 	
-	@Test
+	@Test(description="testcase of managedelivers")
 	public void createDeliveryBoy() throws IOException {
 		String name1="jismi";
 		String mail="jis@gmail.com";

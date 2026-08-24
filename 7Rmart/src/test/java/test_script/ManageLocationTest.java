@@ -13,7 +13,7 @@ import utilities.ExcelUtilities;
 
 public class ManageLocationTest extends Base{
 	
-@Test
+@Test(description="testcase of managelocation")
 public void createManageLocation() throws IOException {
 	String delivery="500";
 	String locat="Trivandrum";

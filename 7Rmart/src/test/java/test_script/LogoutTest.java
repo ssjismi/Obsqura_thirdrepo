@@ -9,7 +9,7 @@ import pages.LogoutPage;
 import utilities.ExcelUtilities;
 
 public class LogoutTest extends Base{
-	@Test
+	@Test(description="testcase of logout page")
 	public void logout() throws IOException {
 		String username=ExcelUtilities.getStringData(1, 0, "loginpage");
 		String password=ExcelUtilities.getStringData(1, 1, "loginpage");

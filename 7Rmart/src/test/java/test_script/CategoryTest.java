@@ -14,7 +14,7 @@ import utilities.ExcelUtilities;
 public class CategoryTest extends Base{
 
  
-@Test
+@Test(description="test case of category page")
 public void createCategoryTest() throws IOException {
 	String n1="healthy option";
 	String usernamevalue = ExcelUtilities.getStringData(1, 0, "loginpage");
