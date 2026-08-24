@@ -13,7 +13,7 @@ import utilities.FakerUtility;
 public class AdminUsersTest extends Base {
 
 	
-	@Test
+	@Test(description="test case of admin users page")
 	public void createAdminUsers() throws IOException {
 		FakerUtility faker=new FakerUtility();
 		String adminusername=faker.creatARandomFirstName();
