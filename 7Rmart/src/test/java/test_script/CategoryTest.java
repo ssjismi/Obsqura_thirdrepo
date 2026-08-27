@@ -37,12 +37,12 @@ public void createCategoryTest() throws IOException {
 	
 //	CategoryPage adm=new CategoryPage(driver);
 	adm=homepage.locateCategory();
-	adm.clickNew();
-	adm.clickCategory(n1);
-	adm.listselect();
-	adm.fileupload();
-	//adm.radioButtons();
-	adm.clickCreate();
+	adm.clickNew().clickCategory(n1).listselect().fileupload().clickCreate();
+//	adm.clickCategory(n1);
+//	adm.listselect();
+//	adm.fileupload();
+//	//adm.radioButtons();
+//	adm.clickCreate();
 	
 	boolean alert=adm.isAlertDisplayed();
 	Assert.assertTrue(alert);

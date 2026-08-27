@@ -28,8 +28,8 @@ public void createManagenews() throws IOException {
 	//ManageNewsPage adm=new ManageNewsPage(driver);
 	adm=homepage.locateManageNews();
 	adm.clickNew();
-	adm.enterdata(data);
-	adm.clickCreate();
+	adm.enterdata(data).clickCreate();
+	//adm.clickCreate();
 	
 	boolean alert=adm.isAlertDisplayed();
 	Assert.assertTrue(alert);

@@ -30,10 +30,10 @@ public void createManageLocation() throws IOException {
 	//ManageLocationPage adm=new ManageLocationPage(driver);
 	adm=homepage.locateManageLocation();
 	adm.clickNew();
-	adm.dropdowns();
-	adm.enterlocation(locat);
-	adm.deliveryCharge(delivery);
-	adm.clickCreate();
+	adm.dropdowns().enterlocation(locat).deliveryCharge(delivery).clickCreate();
+//	adm.enterlocation(locat);
+//	adm.deliveryCharge(delivery);
+//	adm.clickCreate();
 	
 	boolean alert=adm.isAlertDisplayed();
 	Assert.assertTrue(alert);

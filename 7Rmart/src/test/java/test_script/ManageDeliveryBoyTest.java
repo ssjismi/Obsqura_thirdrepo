@@ -32,13 +32,13 @@ public class ManageDeliveryBoyTest extends Base{
 		//ManageDeliveryBoyPage pag=new ManageDeliveryBoyPage(driver);
 		pag=homepage.locateManageDeliveryBoy();
 		pag.clickNew();
-		pag.Usename(name1);
-		pag.Enteremail(mail);
-		pag.Enteraddress(address);
-		pag.Usephone(number);
-		pag.EnterUsername(user);
-		pag.passcode(pass);
-		pag.clickCreate();
+		pag.Usename(name1).Enteremail(mail).Enteraddress(address).Usephone(number).EnterUsername(user).passcode(pass).clickCreate();
+//		pag.Enteremail(mail);
+//		pag.Enteraddress(address);
+//		pag.Usephone(number);
+//		pag.EnterUsername(user);
+//		pag.passcode(pass);
+//		pag.clickCreate();
 		pag.isAlertDisplayed();
 	}
 
