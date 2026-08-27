@@ -10,7 +10,7 @@ import utilities.PageUtility;
 public class ManageDeliveryBoyPage {
 	public WebDriver driver;
 	PageUtility pageutil = new PageUtility();
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-deliveryboy'and @class=' nav-link']") WebElement manage_deliveryboy;
+//	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-deliveryboy'and @class=' nav-link']") WebElement manage_deliveryboy;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newbutton;
 	@FindBy(xpath="//input[@id='name']") WebElement name;
 	@FindBy(xpath="//input[@id='email']") WebElement email;
@@ -28,35 +28,43 @@ public class ManageDeliveryBoyPage {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	public void locateManageDeliveryBoy() {
-		
-		pageutil.clickElement(driver, manage_deliveryboy);
-	}
-	public void clickNew() {
+//	public void locateManageDeliveryBoy() {
+//		
+//		pageutil.clickElement(driver, manage_deliveryboy);
+//	}
+	public ManageDeliveryBoyPage clickNew() {
 		newbutton.click();
+		return this;
 	}
-	public void Usename(String uname) {
+	public ManageDeliveryBoyPage Usename(String uname) {
 		name.sendKeys(uname);
+		return this;
 	}
 	
-	public void Enteremail(String mail) {
+	public ManageDeliveryBoyPage Enteremail(String mail) {
 		email.sendKeys(mail);
+		return this;
 	}
-	public void Usephone(String phn) {
+	public ManageDeliveryBoyPage Usephone(String phn) {
 		phone.sendKeys(phn);
+		return this;
 	}
-	public void Enteraddress(String add) {
+	public ManageDeliveryBoyPage Enteraddress(String add) {
 		address.sendKeys(add);
+		return this;
 	}
-	public void EnterUsername(String name2) {
+	public ManageDeliveryBoyPage EnterUsername(String name2) {
 		username.sendKeys(name2);
+		return this;
 	}
-	public void passcode(String pass) {
+	public ManageDeliveryBoyPage passcode(String pass) {
 		password.sendKeys(pass);
+		return this;
 	}
-	public void clickCreate() {
+	public ManageDeliveryBoyPage clickCreate() {
 		pageutil.clickElement(driver, submit);
 		//submit.click();	
+		return this;
 	}
 	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();

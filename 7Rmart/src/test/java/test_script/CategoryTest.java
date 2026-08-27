@@ -7,11 +7,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.CategoryPage;
+import pages.Homepage;
 import pages.LoginPage;
 import utilities.ExcelUtilities;
 
 
 public class CategoryTest extends Base{
+	Homepage homepage;
+	CategoryPage adm;
 
  
 @Test(description="test case of category page")
@@ -20,16 +23,20 @@ public void createCategoryTest() throws IOException {
 	String usernamevalue = ExcelUtilities.getStringData(1, 0, "loginpage");
 	String passwordvalue = ExcelUtilities.getStringData(1, 1, "loginpage");
 	LoginPage loginpage = new LoginPage(driver);
-	loginpage.enterUsername(usernamevalue);
-	loginpage.enterPassword(passwordvalue);
-	loginpage.clickLogin();
+	loginpage.enterUsername(usernamevalue).enterPassword(passwordvalue);
+	//loginpage.enterPassword(passwordvalue);
+	homepage=loginpage.clickLogin();
+	
+	
 //	 LoginPage loginPage = new LoginPage(driver);
 //
 //     loginPage.enterUsername("admin");
 //     loginPage.enterPassword("admin");
 //     loginPage.clickLogin();
-	CategoryPage adm=new CategoryPage(driver);
-	adm.locateCategory();
+	
+	
+//	CategoryPage adm=new CategoryPage(driver);
+	adm=homepage.locateCategory();
 	adm.clickNew();
 	adm.clickCategory(n1);
 	adm.listselect();

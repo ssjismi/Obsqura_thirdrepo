@@ -13,7 +13,7 @@ public class CategoryPage {
 	public WebDriver driver;
 	PageUtility pageutil = new PageUtility();
 	FileUploadUtility fupload=new FileUploadUtility();
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category' and @class='nav-link']") WebElement manage_category;
+//	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-category' and @class='nav-link']") WebElement manage_category;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newbutton;
 	@FindBy(xpath="//input[@id='category']") WebElement category;
 	@FindBy(xpath="//li[@id='1-selectable']") WebElement sourcedrop;
@@ -31,37 +31,38 @@ public class CategoryPage {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	public void locateCategory() {
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].click();", manage_location);
-//		manage_news.click();
-		
-		pageutil.clickElement(driver, manage_category);
-	}
-	public void clickNew() {
+//	public void locateCategory() {
+//		pageutil.clickElement(driver, manage_category);
+//	}
+	public CategoryPage clickNew() {
 		newbutton.click();
+		return this;
 	}
-	public void clickCategory(String word) {
+	public CategoryPage clickCategory(String word) {
 		category.sendKeys(word);
+		return this;
 	}
-	public void listselect() {
+	public CategoryPage listselect() {
 		sourcedrop.click();
+		return this;
 	}
 
-	public void fileupload() {
+	public CategoryPage fileupload() {
 		fupload.uploadFile(library, Constant.TESTDATA);
 	    //pageutil.uploadFile(library,Constant.TESTDATA);
 	    pageutil.selectRadioButton(driver, first_radio);
-	    pageutil.selectRadioButton(driver, second_radio); 
+	    pageutil.selectRadioButton(driver, second_radio);
+		return null; 
 	}
 //	public void radioButtons() {
 //		first_radio.click();
 //		second_radio.click();
 //	}
 
-	public void clickCreate() {
+	public CategoryPage clickCreate() {
 		pageutil.clickElement(driver, submit);
 		//submit.click();	
+		return null;
 	}
 	public boolean isAlertDisplayed() {
 		return alert1.isDisplayed();

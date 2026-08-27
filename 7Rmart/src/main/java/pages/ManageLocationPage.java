@@ -11,7 +11,7 @@ import utilities.PageUtility;
 public class ManageLocationPage {
 	public WebDriver driver;
 	PageUtility pageutility = new PageUtility();
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-location' and @class=' nav-link']") WebElement manage_location;
+//	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-location' and @class=' nav-link']") WebElement manage_location;
 	@FindBy(xpath="//a[@class='btn btn-rounded btn-danger']") WebElement newbutton;
 	@FindBy(xpath="//select[@id='country_id']") WebElement country;
 	@FindBy(xpath="//select[@id='st_id']") WebElement state;
@@ -27,32 +27,35 @@ public class ManageLocationPage {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
-	public void locateManageLocation() {
-//		JavascriptExecutor js = (JavascriptExecutor) driver;
-//		js.executeScript("arguments[0].click();", manage_location);
-//		manage_news.click();
-		
-		pageutility.clickElement(driver, manage_location);
-	}
-	public void clickNew() {
+//	public void locateManageLocation() {
+//		
+//		pageutility.clickElement(driver, manage_location);
+//	}
+	public ManageLocationPage clickNew() {
 		newbutton.click();
+		return this;
 	}
-	public void dropdowns() {	
+	public ManageLocationPage dropdowns() {	
 	    pageutility.dropdownVisibleText(country, "United Kingdom");
 	    pageutility.dropdownVisibleText(state, "Brechin");
+		return this;
 	}
-	public void enterlocation(String lname) {
+	public ManageLocationPage enterlocation(String lname) {
 		location.sendKeys(lname);
+		return this;
 	}
-	public void deliveryCharge(String charge) {
+	public ManageLocationPage deliveryCharge(String charge) {
 		delivery_charge.sendKeys(charge);
+		return this;
 	}
-	public void clickCreate() {
-		submit.click();	
+	public ManageLocationPage clickCreate() {
+		submit.click();
+		return this;	
 	}
-	public void dropdown() {
+	public ManageLocationPage dropdown() {
 		pageutility.dropdownVisibleText(country,"United Kingdom"); 
 		pageutility.dropdownVisibleText(state,"Brechin");
+		return this;
 		
 	}
 	public boolean isAlertDisplayed() {
