@@ -51,7 +51,8 @@ public class Homepage {
 		pageutility.clickElement(driver, manage_deliveryboy);
 		return new ManageDeliveryBoyPage(driver);
 	}
-    public AdminUsersPage locateAdminUsers() {
+
+	public AdminUsersPage locateAdminUsers() {
 		adm_user.click();
 		return new AdminUsersPage(driver);
 	}

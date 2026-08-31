@@ -33,7 +33,7 @@ public class ExcelUtilities {
  		XSSFCell c=r.getCell(b); 
  		int y=(int) c.getNumericCellValue();//type casting 
  		return y; 
- 		//return String.valueOf(y); 
- 	}
+		// return String.valueOf(y);
+	}
 
 }

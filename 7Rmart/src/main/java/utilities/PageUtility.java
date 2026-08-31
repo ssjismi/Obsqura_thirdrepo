@@ -10,18 +10,20 @@ public class PageUtility {
 		Select select = new Select(element);
 		select.selectByVisibleText(visibleText);
 	}
-	public void clickElement(WebDriver driver,WebElement element) {
-		JavascriptExecutor js=(JavascriptExecutor) driver;
-		js.executeScript("arguments[0].click()",element);
+
+	public void clickElement(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click()", element);
 	}
+
 //	public void uploadFile(WebElement element, String filePath) {
 //	    element.sendKeys(filePath);
 //	}
 	public void selectRadioButton(WebDriver driver, WebElement radioButton) {
 
-	    JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
-	    js.executeScript("arguments[0].click();", radioButton);
+		js.executeScript("arguments[0].click();", radioButton);
 	}
 //	 public void dragAndDrop(WebDriver driver, WebElement source, WebElement target) {
 //
